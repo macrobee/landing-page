@@ -100,6 +100,7 @@ h1 {
 .cardsheet {
     display: flex;
     justify-content: center;
+    align-content: flex-start;
     flex-wrap: wrap;
     gap: 30px;
 }
@@ -112,6 +113,7 @@ h1 {
     width: 150px;
     text-align: center;
     gap: 10px;
+    transition: 1s;
 }
 
 .card-text {
@@ -206,4 +208,8 @@ p {
     align-items: center;
     padding-top: 2%;
     padding-bottom: 2%;
+}
+
+.result {
+    border-color: goldenrod;
 }
