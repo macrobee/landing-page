@@ -6,6 +6,7 @@ const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
 const didWin = document.querySelector("#didwin");
+const resultContainer = document.querySelector("#resultbox");
 const gameResultImage = document.querySelector("#didwin");
 const gameResultText = document.querySelector('#gameresult');
 
@@ -51,26 +52,30 @@ function makeComputerChoice() {
 }
 
 function didUserWin(userChoice, computerChoice) {
+    let gameResult = "";
     const resultText = {
-        win: `Computer chose ${computerChoice.choice}. You win! You're a hero to us all.`,
-        lose: `Computer chose ${computerChoice.choice}. Too bad! You lose! Play again soon`,
-        tie: `Computer chose ${computerChoice.choice} too. It's a tie! We're all winners.`
+        "win": `Computer chose ${computerChoice.choice}. You win! You're a hero to us all.`,
+        "lose": `Computer chose ${computerChoice.choice}. Too bad! You lose! Play again soon`,
+        "tie": `Computer chose ${computerChoice.choice} too. It's a tie! We're all winners.`
     }
 
+    resultContainer.classList.remove("lose");
+    resultContainer.classList.remove("tie");
+    resultContainer.classList.remove("win");
 
     if (userChoice.winsAgainst == computerChoice.choice) {
-        gameResultImage.src = './win.png';
-        gameResultText.textContent = resultText.win;
-        return resultText.win;
+        gameResult = "win";
     }
     else if (userChoice.losesAgainst == computerChoice.choice) {
-        gameResultImage.src = './lose.jpg';
-        gameResultText.textContent = resultText.lose;
-        return resultText.lose;
+        gameResult = "lose"
     }
     else {
-        gameResultImage.src = `./${userChoice.choice.toLowerCase()}.jpg`
-        gameResultText.textContent = resultText.tie;
-        return resultText.tie;
+        gameResult = "tie"
     }
+
+    console.log(gameResult);
+    gameResultImage.src = `./${gameResult}.jpg`;
+    gameResultText.textContent = resultText[gameResult];
+    resultContainer.classList.add(gameResult);
+    return resultText[gameResult];
 }

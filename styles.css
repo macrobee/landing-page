@@ -110,10 +110,20 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid white;
     width: 150px;
     text-align: center;
     gap: 10px;
-    transition: 1s;
+    transition: 0.5s;
+}
+
+.info-cards:hover {
+    background-color: #96bbff;
+    box-shadow: 0 0 30px 5px #96bbff;
+    border: 1px solid #1F2937;
+    
 }
 
 .card-text {
@@ -130,6 +140,7 @@ h2 {
 img {
     border-radius: 10px;
     border: 2px solid #3882F6;
+    transition: 1s;
 }
 
 .quote-block {
@@ -210,6 +221,17 @@ p {
     padding-bottom: 2%;
 }
 
-.result {
+.win {
     border-color: goldenrod;
+    box-shadow: 0 0 30px 5px #3c974e;
+}
+
+.lose{
+    border-color: red;
+    box-shadow: 0 0 30px 5px #7c62b4;
+}
+
+.tie{
+    border-color: rgb(104, 115, 134);
+    box-shadow: 0 0 30px 5px #6c82ac;
 }
